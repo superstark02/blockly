@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "build",
+    "site": "blocky-react",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
