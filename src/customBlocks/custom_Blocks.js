@@ -1,43 +1,82 @@
 import Blockly from 'blockly';
 import 'blockly/python';
 
-Blockly.Blocks['new_boundary_function'] = {
+Blockly.Blocks['bot'] = {
     init: function () {
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldTextInput("Boundary Function Name"), "Name");
-        this.appendStatementInput("Content")
-            .setCheck(null);
-        this.setInputsInline(true);
+        this.appendDummyInput().appendField("Bot", "name");
+            
+        this.appendStatementInput("Content").setCheck(null);
+
+        this.setInputsInline(false);
         this.setColour(315);
         this.setTooltip("");
         this.setHelpUrl("");
     }
 };
 
-Blockly.Python['new_boundary_function'] = function (block) {
-    var text_name = block.getFieldValue('Name');
-    var statements_content = Blockly.Python.statementToCode(block, 'Content');
-    // TODO: Assemble Python into code variable.
-    var code = 'def ' + text_name + '(_object,**kwargs):\n' + statements_content + '\n';
-    return code;
-};
-
-Blockly.Blocks['return'] = {
+Blockly.Blocks['questions'] = {
     init: function () {
-        this.appendValueInput("NAME")
-            .setCheck(null)
-            .appendField("return");
-        this.setInputsInline(false);
-        this.setPreviousStatement(true, null);
-        this.setColour(330);
-        this.setTooltip("");
+
+        this.appendDummyInput()
+        .appendField('Questions')
+        .appendField(new Blockly.FieldDropdown([
+            ['Ask me a question.', 'ITEM0'],
+            ['What is the date today?', 'ITEM1'],
+            ['What is the time now?', 'ITEM2'],
+            ['How are you?', 'ITEM3'],
+            ['What is javascript', 'ITEM4'],
+            ['What is your name?', 'ITEM5']
+        ]), 'question');
+        
+        this.setPreviousStatement(true); 
+        this.setColour(315);
+
+        //others
+        this.setTooltip("Custom block to answers your questions");
         this.setHelpUrl("");
     }
 };
 
-Blockly.Python['return'] = function (block) {
-    var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
-    // TODO: Assemble Python into code variable.
-    var code = 'return ' + value_name + '\n';
-    return code;
+Blockly.JavaScript['questions'] = function (block) {
+    var q = block.getFieldValue('question');
+    return q;
 };
+
+Blockly.JavaScript['bot'] = function (block) {
+
+    var q = Blockly.JavaScript.statementToCode(block, 'Content');
+    var ans = "";
+
+    if(q === "  ITEM0"){
+        ans = "No question asked, please try again";
+    }
+
+    else if(q === "  ITEM1"){
+        var date = new Date().getDate() + "/" + new Date().getMonth() + "/"  + new Date().getFullYear()
+        ans = 'Today\'s Date ' + date;
+    }
+
+    else if(q === "  ITEM2"){
+        var time = new Date().getHours() + ":" + new Date().getMinutes() + ":"  + new Date().getSeconds()
+        ans = 'Time:  ' + time;
+    }
+
+    else if(q === "  ITEM3"){
+        ans = 'I am fine thank you, but will be better once I get his internship!!';
+    }
+
+    else if(q === "  ITEM4"){
+        ans = 'JavaScript is a very fun language, used by aliens to communicate.';
+    }
+
+    else if(q === "  ITEM5"){
+        ans = 'My name is Blockly Bot!!';
+    }
+
+    else{
+        ans = "Not working"
+    }
+
+    return '"'+ans+'"';
+}
+
