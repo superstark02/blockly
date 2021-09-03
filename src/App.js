@@ -77,12 +77,21 @@ export default function App() {
             </div>
             <div className="wrap" >
               <div>
-                <Button variant="contained" color="primary" style={{ margin: "0px 10px" }} onClick={() => { runCode(javascriptCode) }} >
-                  Run
-                </Button>
-                <Button variant="contained" color="secondary" onClick={() => { reset() }} >
-                  Reset
-                </Button>
+                <div className="wrap" >
+                  <div>
+                    <Button variant="contained" color="primary" style={{ margin: "0px 10px" }} onClick={() => { runCode(javascriptCode) }} >
+                      Run
+                    </Button>
+                    <Button variant="contained" color="secondary" onClick={() => { reset() }} >
+                      Reset
+                    </Button>
+                  </div>
+                </div>
+                <div style={{ textAlign: 'center' }} >
+                  <p>
+                    Please do not forget to run the code after making changes 👍
+                  </p>
+                </div>
               </div>
             </div>
           </div>
