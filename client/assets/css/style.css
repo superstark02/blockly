@@ -7,17 +7,12 @@ body {
 }
 
 #blocklyDiv {
-  height: 700px;
-  width: 752px;
+  height: 100vh;
+  width: 100%;
 }
 
 .game {
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  width: 500px;
-  height: 695px;
-  border: 2px dashed #000;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

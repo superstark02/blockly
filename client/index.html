@@ -13,21 +13,27 @@
 </head>
 
 <body>
-  <div id="blocklyDiv"></div>
-  <div class="game">
-    <div>
-      <div id="inputBox" class="text-input"></div>
-      <div class="button-container">
-        <button id="runBtn" class="button primary"><span>Run</span></button>
-        <button id="resetBtn" class="button secondary"><span>Reset</span></button>
+  <div style="display: flex; justify-content: center;">
+
+    <div style="width: 100%; display: flex;">
+      <div id="blocklyDiv"></div>
+      <div class="game">
+        <div>
+          <div id="inputBox" class="text-input"></div>
+          <div class="button-container">
+            <button id="runBtn" class="button primary"><span>Run</span></button>
+            <button id="resetBtn" class="button secondary"><span>Reset</span></button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
-    <block type="bot"></block>
-    <block type="questions"></block>
-  </xml>
+    <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+      <block type="bot"></block>
+      <block type="questions"></block>
+    </xml>
+
+  </div>
 
   <script src="assets/scripts/blocks.js"></script>
 

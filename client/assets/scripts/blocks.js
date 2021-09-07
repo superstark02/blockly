@@ -104,14 +104,17 @@ function runcode() {
   // Generate JavaScript code and run it.
   var geval = eval;
   try {
-    geval(Blockly.JavaScript.workspaceToCode(workspace));
+    var output = geval(Blockly.JavaScript.workspaceToCode(workspace));
+    $("#inputBox").text(output);
+    console.log(output)
   } catch (e) {
     console.error(e);
   }
-  redrawUi();
+  //redrawUi();
 }
 
 function reset() {
   delete inputTextValue;
+  Blockly.mainWorkspace.clear()
   redrawUi();
 }
