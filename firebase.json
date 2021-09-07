@@ -1,7 +1,7 @@
 {
   "hosting": {
     "public": "client",
-    "site": "bolckly-react",
+    "site": "blocky-react",
     "ignore": [
       "firebase.json",
       "**/.*",
